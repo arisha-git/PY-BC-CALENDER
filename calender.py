@@ -1,8 +1,5 @@
-import calendar
-
 def julianleapyear(year):
     return year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
-
 
 def daysjulianmonth(year, month):
     if month == 2:
@@ -26,12 +23,15 @@ def monthstart(year, month):
     return (ref_start_day + total_days) % 7
 
 class JulianCalendar:
+    month_names = ["January", "February", "March", "April", "May", "June",
+                   "July", "August", "September", "October", "November", "December"]
+
     def __init__(self, year, month):
         self.year = year
         self.month = month
 
     def display_month(self):
-        month_name = calendar.month_name[self.month]
+        month_name = self.month_names[self.month - 1]
         print(f"{month_name} {self.year}")
         print("Mon Tue Wed Thu Fri Sat Sun")
 
@@ -90,4 +90,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
